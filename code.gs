@@ -11,8 +11,8 @@ function pullSegment(nextPageToken=null){
   // Comb through drive activity report for all entries with B&S as initiator
   // store emails of all users associated with these activities
   Logger.log('Requesting Page')
-  page = AdminReports.Activities.list('all', 'drive', {
-    maxResults: 200,
+  page = AdminDirectory.Activities.list('all', 'drive', {
+    maxResults: 1000,
     filters: 'originating_app_id==645529619299',
     pageToken: pageToken
   });
