@@ -18,7 +18,7 @@ A webapp to identify google workspace users in a domain who have used Backup and
 14. Wait for the script to complete. You will be provided with a line delimited list of users.
 
 ## How this script works
-This script uses your drive activity report to find users who have taken auditable actions using Backup and Sync by Google. To do so, it requests a list of all accesstible Drive activity filtered to only those which originated from Backup and Sync. The script then identifies the emails of those users from the supplied list, and compiles them in a list for ease of Use.
+This script uses your drive activity report to find users who have taken auditable actions using Backup and Sync by Google. To do so, it requests a list of all accessible Drive activity filtered to only those which originated from Backup and Sync. The script then identifies the emails of those users from the supplied list, and compiles them in a list for ease of Use.
 
 ## Troubleshooting
 
