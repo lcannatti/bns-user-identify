@@ -1,5 +1,5 @@
 # bns-user-identify
-A webapp to identify google workspace users in a domain who have used Backup and Sync in the last 180 days.
+A webapp to identify Google Workspace users in a domain who have used Backup and Sync in the last 180 days.
 
 ## How to use this project
 1. In your browser log into Google as your Workspace administrator account and go to [Google Apps Script](script.google.com) 
@@ -18,8 +18,11 @@ A webapp to identify google workspace users in a domain who have used Backup and
 14. Wait for the script to complete. You will be provided with a line delimited list of users.
 
 ## How this script works
-This script uses your drive activity report to find users who have taken auditable actions using Backup and Sync by Google. To do so, it requests a list of all accessible Drive activity filtered to only those which originated from Backup and Sync. The script then identifies the emails of those users from the supplied list, and compiles them in a list for ease of Use.
+This script uses your Drive activity report to find users who have taken auditable actions using Backup and Sync by Google. To do so, it requests a list of all accessible Drive activity filtered to only those which originated from Backup and Sync. The script then identifies the emails of those users from the supplied list, and compiles them in a list for ease of Use.
 
 ## Troubleshooting
 
 If your script encounters timeout errors, you can try reducing the number of results requested at a time by changing the number on line 15 in code.gs to anything smaller than 1000. The smaller the number, the less time each request should take. Less than 100 may be counterproductive however due to overhead on each request.
+
+### Disclaimers
+This script is not developed or supported by Google.
