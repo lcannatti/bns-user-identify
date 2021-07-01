@@ -22,7 +22,9 @@ function pullSegment(nextPageToken=null){
     Logger.log(`Recieved ${items.length} items`)
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
-      emails[item.actor.email]=1;
+      if(item.actor.email){
+        emails[item.actor.email]=1;
+      }
     }
   }
   pageToken = page.nextPageToken;
