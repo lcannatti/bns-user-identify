@@ -6,7 +6,7 @@ A webapp to identify Google Workspace users in a domain who have used Backup and
 _If your users are not on compatible licenses, you may be able to identify some of them using [this process](README.md#Alternative-approach)._
 
 ## How to use this project
-1. In your browser log into Google as your Workspace administrator account and go to [Google Apps Script](script.google.com).
+1. In your browser log into Google as your Workspace administrator account and go to [Google Apps Script](https://script.google.com).
 2. Click "New Project".
 3. Paste the contents of [Code.gs](code.gs) into the Code.gs File that opens by default, and save using CMD + S (Mac) or CTRL + S (PC).
 4. Create a new HTML file and name it "Index".
