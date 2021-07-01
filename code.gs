@@ -17,9 +17,9 @@ function pullSegment(nextPageToken=null){
     pageToken: pageToken
   });
   var items = page.items;
-  Logger.log(page.items.length)
   //pull emails out of the response
   if (items) {
+    Logger.log(`Recieved ${items.length} items`)
     for (var i = 0; i < items.length; i++) {
       var item = items[i];
       emails[item.actor.email]=1;
