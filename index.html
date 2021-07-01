@@ -8,30 +8,34 @@
         .pullSegment(null);
       var lastPageToken;      
       function onsuccess(data){
-        //Kick off the next page if needed
+        // Kick off the next page if needed
         if(data.nextPageToken){
           lastPageToken=data.nextPageToken;
           google.script.run.withSuccessHandler(onsuccess)
             .pullSegment(data.nextPageToken)
         }
-        //merge local emails with newly retrieved emails
+        // Merge local emails with newly retrieved emails
         for(const email in data.emails){
           localEmails[email]=1
         }
-        //format current list for 
-        finalOutput='<table><tbody>'
-        for(key in localEmails){
-          finalOutput=finalOutput+'<tr><td>'+key+'</td></tr>'
-        }
-        finalOutput=finalOutput+'</tbody></table>'
-        //drop the final comma
-        // finalOutput=finalOutput.slice(0,-2)
-        if(data.nextPageToken){
-          finalOutput=finalOutput+'... (Still working)'
-        }
-        // Update the UI
         var div = document.getElementById('output');
-        div.innerHTML = finalOutput;        
+        // Check for empty final list:
+        if(Object.keys(localEmails).length==0 && data.nextPageToken==null){
+          div.innerHTML='Search complete: No users found.'
+        } else {
+          // Format current list for copy paste
+          finalOutput='<table><tbody>'
+          for(key in localEmails){
+            finalOutput=finalOutput+'<tr><td>'+key+'</td></tr>'
+          }
+          finalOutput=finalOutput+'</tbody></table>'
+          // Indicate if still working
+          if(data.nextPageToken){
+            finalOutput=finalOutput+'... (Still working)'
+          }
+          // Update the UI
+          div.innerHTML = finalOutput;        
+        }
       }
 
       function onFailure(error){
